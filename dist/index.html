@@ -8,22 +8,35 @@
 </head>
 <body>
   <header>
-    <input type="text" class="search-bar" placeholder="Enter city name..."></input>
+    <input type="text" class="search-bar my-5 mx-auto form-control" placeholder="Enter city name..."></input>
   </header>
   <main>
     <div class="main-content d-flex justify-content-around">
       <div class="main-card">
         <div class="city">Lima, PE</div>
+        <div class="city-date">Friday 24, July 2020</div>
         <div class="temperature">22°C</div>
-        <div class="description">Sunny</div>
-        <div class="bottom-container d-flex mt-3">
-          <div class="left-side mr-2">
-            <div class="wind">4 km/h</div>
-            <div class="humidity">81%</div>
+        <div class="description font-weight-bold">Sunny</div>
+        <div class="bottom-container d-flex mt-3 justify-content-around">
+          <div class="left-side">
+            <div class="wind my-2">
+              <span class="font-weight-bold">Wind</span><br>
+              <span>4 km/h</span>
+            </div>
+            <div class="humidity">
+              <span class="font-weight-bold">Humidity</span><br>
+              <span>81%</span>
+            </div>
           </div>
-          <div class="right-side ml-2">
-            <div class="fell-like">24°C</div>
-            <div class="min-max">18°C / 25°C</div>
+          <div class="right-side">
+            <div class="fell-like my-2">
+              <span class="font-weight-bold">Feel Like</span><br>
+              <span>24°C</span>
+            </div>
+            <div class="min-max">
+              <span class="font-weight-bold">Min/Max</span><br>
+              <span>18°C / 25°C</span>
+            </div>
           </div>
         </div>
       </div>
