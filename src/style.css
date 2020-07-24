@@ -4,12 +4,22 @@
   margin: 0;
 }
 
-.content {
-  /* background: url(./images/weather-background.jpg) no-repeat cover; */
-  background-color: blue;
-  height: 100vh;
+body {
+  background-image: linear-gradient(to bottom, rgba(48, 96, 159, 0.9), rgba(110, 163, 231, 0.7));
+  /* background: url('./images/weather-background.jpg') no-repeat top center; */
+  min-height: 100vh;
+  z-index: -1;
+  color: #fff;
 }
 
-html {
-  background-color: #000;
+header {
+  text-align: center;
+}
+
+.main-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
