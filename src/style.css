@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  /* background: url(./images/weather-background.jpg) no-repeat cover; */
+  background-color: blue;
+  height: 100vh;
+}
