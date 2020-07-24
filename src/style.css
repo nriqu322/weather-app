@@ -31,15 +31,14 @@ header {
   width: 250px;
 }
 
-.city,
-.description {
-  font-size: 28px;
-  font-weight: 500;
+.city-name {
+  font-size: 32px;
 }
 
-/* .city-date {
-  font-size: 14px;
-} */
+.description {
+  font-size: 28px;
+  font-weight: 700;
+}
 
 .temperature {
   font-size: 72px;
