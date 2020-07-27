@@ -5,14 +5,11 @@
 }
 
 body {
-  /* background-image: linear-gradient(to bottom, rgba(48, 96, 159, 0.9), rgba(110, 163, 231, 0.7)); */
-
-  background-image: url('./images/snow.jpg');
+  background-image: url('./images/cloudy.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-  /* z-index: -1; */
   color: #fff;
 }
 
@@ -22,6 +19,18 @@ body {
   max-width: 700px;
   text-align: center;
   margin: auto;
+}
+
+.selected {
+  color: #fff;
+  font-weight: bolder;
+}
+
+.units {
+  font-size: 36px;
+  margin: auto;
+  cursor: pointer;
+  color: lightgray;
 }
 
 .main-content {
