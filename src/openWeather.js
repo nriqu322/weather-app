@@ -21,7 +21,15 @@ const apiWeather = () => {
     }
   }
 
+  function changeBackground(e) {
+    if (e.keyCode === 13) {
+      const bodyCont = document.querySelector('body');
+      bodyCont.style.background = "url('./images/snow.jpg')";
+    }
+  }
+
   searchBar.addEventListener('keypress', setQuery);
+  searchBar.addEventListener('keypress', changeBackground);
 
   const clearElement = (element) => {
     while (element.firstChild) {
@@ -30,6 +38,7 @@ const apiWeather = () => {
   };
 
   const displayWeather = (weather) => {
+    console.log(weather);
     const cityName = document.querySelector('.city-name');
     cityName.textContent = `${weather.name}, ${weather.sys.country}`;
 
@@ -56,10 +65,15 @@ const apiWeather = () => {
   };
 
   async function getWeather(query) {
-    const response = await fetch(`${api.baseurl}weather?q=${query}&units=metric&APPID=${api.key}`, { mode: 'cors' });
+    try {
+      const response = await fetch(`${api.baseurl}weather?q=${query}&units=metric&APPID=${api.key}`, { mode: 'cors' });
 
-    const weather = await response.json();
-    displayWeather(weather);
+      const weather = await response.json();
+      displayWeather(weather);
+    } catch (e) {
+      errorMessage.style.visibility = 'visible';
+      errorMessage.textContent = 'City not found';
+    }
   }
 
   const setDate = () => {
@@ -121,7 +135,6 @@ const apiWeather = () => {
 
 
   const displayForecast = (forecast) => {
-    console.log(new Date().getDay());
     const forecastCont = document.querySelector('.forecast');
     clearElement(forecastCont);
 
