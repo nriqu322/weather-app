@@ -7,13 +7,14 @@
   <title>Weather App</title>
 </head>
 <body>
-  <header>
-    <input type="text" class="search-bar my-5 mx-auto form-control" placeholder="Enter city name..."></input>
+  <header class="my-5">
+    <input required type="text" class="search-bar my-1 mx-auto form-control" placeholder="Enter city name..."></input>
+    <div class="error-message">error</div>
   </header>
   <main>
     <div class="main-content d-flex justify-content-around">
       <div class="main-card">
-        <div class="city-name">Lima, PE</div>
+        <div class="city-name">Neverland, UN</div>
         <div class="city-date">Friday 24, July 2020</div>
         <div class="temperature">22°C</div>
         <div class="description">Sunny</div>
@@ -42,6 +43,9 @@
       </div>
 
       <div class="gift-container">GIFT</div>
+    </div>
+
+    <div class="forecast d-flex justify-content-around">
     </div>
   </main>
   <script src="main.js"></script>
