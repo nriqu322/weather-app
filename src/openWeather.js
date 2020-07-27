@@ -23,10 +23,18 @@ const apiWeather = () => {
 
   searchBar.addEventListener('keypress', setQuery);
 
+  const clearElement = (element) => {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  };
+
   const displayWeather = (weather) => {
-    // console.log(weather);
     const cityName = document.querySelector('.city-name');
     cityName.textContent = `${weather.name}, ${weather.sys.country}`;
+
+    const cityDate = document.querySelector('.city-date');
+    cityDate.textContent = setDate().weatherDate;
 
     const temperature = document.querySelector('.temperature');
     temperature.textContent = `${weather.main.temp.toFixed(0)}°C`;
@@ -56,6 +64,13 @@ const apiWeather = () => {
 
   const setDate = () => {
     const currentDate = new Date();
+
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const dayDescrip = (idx) => days[currentDate.getDay() + idx];
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthDescrip = months[currentDate.getMonth()];
+
     const year = currentDate.getFullYear();
     let month = '';
     let day = '';
@@ -69,50 +84,67 @@ const apiWeather = () => {
     } else {
       day = currentDate.getDate() + 1;
     }
+
+    const weatherDate = `${dayDescrip(0)} ${day}, ${monthDescrip} ${year}`;
     const forecastDate = `${year}-${month}-${day} 09:00:00`;
 
-    // console.log(forecastDate);
-    return String(forecastDate);
+    return {
+      weatherDate, forecastDate, dayDescrip, monthDescrip,
+    };
   };
 
-  const setForecastCard = (forecast, i) => {
+  const setForecastCard = (forecast, i, dayDescrip) => {
     const forecastCont = document.querySelector('.forecast');
     const forecastCard = document.createElement('div');
-    forecastCard.classList.add('forecast-card');
+    forecastCard.classList.add('forecast-card', 'my-5', 'p-3', 'mx-2');
     forecastCont.appendChild(forecastCard);
+
+    const forecastDay = document.createElement('div');
+    forecastDay.classList.add('forecast-day');
+    forecastDay.textContent = dayDescrip;
+    forecastCard.appendChild(forecastDay);
+
+    const iconForecast = document.createElement('img');
+    iconForecast.classList.add('icon-forecast');
+    iconForecast.src = `http://openweathermap.org/img/w/${forecast.list[i].weather[0].icon}.png`;
+    forecastCard.appendChild(iconForecast);
 
     const tempForecast = document.createElement('div');
     tempForecast.classList.add('temp-forecast');
     tempForecast.textContent = `${forecast.list[i].main.temp.toFixed(0)}°C`;
     forecastCard.appendChild(tempForecast);
 
-    const iconForecast = document.createElement('img');
-    iconForecast.classList.add('icon-forecast');
-    iconForecast.src = `http://openweathermap.org/img/w/${forecast.list[i].weather[0].icon}.png`;
-    forecastCard.appendChild(iconForecast);
+    const minMaxForecast = document.createElement('div');
+    minMaxForecast.classList.add('.min-max-forecast');
+    minMaxForecast.textContent = `${forecast.list[i].main.temp_min.toFixed(0)}°C / ${forecast.list[i].main.temp_max.toFixed(0)}°C`;
   };
 
 
   const displayForecast = (forecast) => {
-    console.log(forecast.list);
-    console.log(setDate());
+    console.log(new Date().getDay());
+    const forecastCont = document.querySelector('.forecast');
+    clearElement(forecastCont);
 
     for (let i = 0; i < forecast.list.length; i += 1) {
-      if (forecast.list[i].dt_txt === setDate()) {
-        setForecastCard(forecast, i);
-        setForecastCard(forecast, i + 8);
-        setForecastCard(forecast, i + 16);
-        setForecastCard(forecast, i + 24);
-        setForecastCard(forecast, i + 32);
+      if (forecast.list[i].dt_txt === setDate().forecastDate) {
+        setForecastCard(forecast, i, setDate().dayDescrip(1));
+        setForecastCard(forecast, i + 8, setDate().dayDescrip(2));
+        setForecastCard(forecast, i + 16, setDate().dayDescrip(3));
+        setForecastCard(forecast, i + 24, setDate().dayDescrip(4));
+        setForecastCard(forecast, i + 32, setDate().dayDescrip(5));
       }
     }
   };
 
   async function getForecast(query) {
-    const responseForecast = await fetch(`${api.baseurl}forecast?q=${query}&units=metric&appid=${api.key}`, { mode: 'cors' });
-
-    const forecast = await responseForecast.json();
-    displayForecast(forecast);
+    try {
+      const responseForecast = await fetch(`${api.baseurl}forecast?q=${query}&units=metric&appid=${api.key}`, { mode: 'cors' });
+      const forecast = await responseForecast.json();
+      displayForecast(forecast);
+    } catch (e) {
+      errorMessage.style.visibility = 'visible';
+      errorMessage.textContent = 'City not found';
+    }
   }
 };
 

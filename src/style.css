@@ -6,6 +6,7 @@
 
 body {
   background-image: linear-gradient(to bottom, rgba(48, 96, 159, 0.9), rgba(110, 163, 231, 0.7));
+
   /* background: url('./images/weather-background.jpg') no-repeat top center; */
   min-height: 100vh;
   z-index: -1;
@@ -51,4 +52,23 @@ header {
 
 .error-message {
   visibility: hidden;
+}
+
+.forecast-card {
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 2px 1px 5px 2px rgba(241, 229, 52, 0.801);
+}
+
+.temp-forecast {
+  font-size: 26px;
+}
+
+.icon-forecast {
+  height: 85px;
+}
+
+.forecast-day {
+  text-transform: uppercase;
+  font-size: 26px;
 }
