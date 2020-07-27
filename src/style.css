@@ -5,12 +5,27 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, rgba(48, 96, 159, 0.9), rgba(110, 163, 231, 0.7));
+  /* background-image: linear-gradient(to bottom, rgba(48, 96, 159, 0.9), rgba(110, 163, 231, 0.7)); */
 
-  /* background: url('./images/weather-background.jpg') no-repeat top center; */
+  background-image: url('./images/snow.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
-  z-index: -1;
+  /* z-index: -1; */
   color: #fff;
+}
+
+.first-message {
+  font-size: 58px;
+  font-weight: bold;
+  max-width: 700px;
+  text-align: center;
+  margin: auto;
+}
+
+.main-content {
+  display: none;
 }
 
 header {
@@ -47,7 +62,7 @@ header {
 
 .bottom-container {
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .error-message {
@@ -71,4 +86,8 @@ header {
 .forecast-day {
   text-transform: uppercase;
   font-size: 26px;
+}
+
+.gift-container {
+  height: 250px;
 }

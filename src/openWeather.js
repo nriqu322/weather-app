@@ -12,6 +12,7 @@ const apiWeather = () => {
       if (searchBar.value !== '') {
         getWeather(searchBar.value);
         getForecast(searchBar.value);
+        getGift();
         searchBar.value = '';
         errorMessage.style.visibility = 'hidden';
       } else {
@@ -21,15 +22,16 @@ const apiWeather = () => {
     }
   }
 
-  function changeBackground(e) {
-    if (e.keyCode === 13) {
-      const bodyCont = document.querySelector('body');
-      bodyCont.style.background = "url('./images/snow.jpg')";
-    }
-  }
+  // const myPic = ['images/cloudy.jpg', 'images/sunny.jpg', 'images/rain.jpg'];
 
   searchBar.addEventListener('keypress', setQuery);
-  searchBar.addEventListener('keypress', changeBackground);
+  // searchBar.addEventListener('keypress', (e) => {
+  //   if (e.keyCode === 13) {
+  //     // const bodyCont = document.querySelector('.content');
+  //     const randomNum = Math.floor((Math.random() * myPic.length));
+  //     document.body.style.backgroundImage = `url(${myPic[randomNum]})`;
+  //   }
+  // });
 
   const clearElement = (element) => {
     while (element.firstChild) {
@@ -39,6 +41,11 @@ const apiWeather = () => {
 
   const displayWeather = (weather) => {
     console.log(weather);
+    const firstMessage = document.querySelector('.first-message');
+    firstMessage.style.display = 'none';
+    const mainContent = document.querySelector('.main-content');
+    mainContent.classList.add('d-flex', 'justify-content-around');
+
     const cityName = document.querySelector('.city-name');
     cityName.textContent = `${weather.name}, ${weather.sys.country}`;
 
@@ -157,6 +164,22 @@ const apiWeather = () => {
     } catch (e) {
       errorMessage.style.visibility = 'visible';
       errorMessage.textContent = 'City not found';
+    }
+  }
+
+  const displayGift = (giftData) => {
+    const giftContainer = document.querySelector('.gift-container');
+    giftContainer.src = giftData.data.images.original.url;
+  };
+
+  async function getGift() {
+    try {
+      const response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=JbHdX4EguTWZ7yIGmJ4qJDtoBI2LuUg7&s=weather', { mode: 'cors' });
+      const giftData = await response.json();
+      displayGift(giftData);
+    } catch (e) {
+      errorMessage.style.visibility = 'visible';
+      errorMessage.textContent = 'Gift not found';
     }
   }
 };

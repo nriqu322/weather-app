@@ -7,42 +7,43 @@
   <title>Weather App</title>
 </head>
 <body>
-  <header class="my-5">
+  <header class="py-5">
     <input required type="text" class="search-bar my-1 mx-auto form-control" placeholder="Enter city name..."></input>
     <div class="error-message">error</div>
   </header>
   <main>
-    <div class="main-content d-flex justify-content-around">
+    <div class="first-message">Welcome, please enter a citiy name to check the weather.</div>
+    <div class="main-content">
       <div class="main-card">
-        <div class="city-name">Neverland, UN</div>
-        <div class="city-date">Friday 24, July 2020</div>
-        <div class="temperature">22°C</div>
-        <div class="description">Sunny</div>
+        <div class="city-name"></div>
+        <div class="city-date"></div>
+        <div class="temperature"></div>
+        <div class="description"></div>
         <div class="bottom-container d-flex mt-3 justify-content-around">
           <div class="left-side">
             <div class="wind-container my-2">
               <span class="font-weight-bold">Wind</span><br>
-              <span class="wind">4 km/h</span>
+              <span class="wind"></span>
             </div>
             <div class="humidity-container">
               <span class="font-weight-bold">Humidity</span><br>
-              <span class="humidity">81%</span>
+              <span class="humidity"></span>
             </div>
           </div>
           <div class="right-side">
             <div class="feel-like-container my-2">
               <span class="font-weight-bold">Feels Like</span><br>
-              <span class="feel-like">24°C</span>
+              <span class="feel-like"></span>
             </div>
             <div class="min-max-container">
               <span class="font-weight-bold">Min/Max</span><br>
-              <span class="min-max">18°C / 25°C</span>
+              <span class="min-max"></span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="gift-container">GIFT</div>
+      <img class="gift-container align-items-center"></img>
     </div>
 
     <div class="forecast d-flex justify-content-center"></div>
