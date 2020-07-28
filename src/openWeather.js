@@ -63,8 +63,6 @@ const apiWeather = () => {
     console.log(weather);
     const firstMessage = document.querySelector('.first-message');
     firstMessage.style.display = 'none';
-    const mainContent = document.querySelector('.main-content');
-    mainContent.classList.add('d-flex', 'justify-content-around');
 
     const cityName = document.querySelector('.city-name');
     cityName.textContent = `${weather.name}, ${weather.sys.country}`;
@@ -94,12 +92,15 @@ const apiWeather = () => {
   async function getWeather(query, unit) {
     try {
       const response = await fetch(`${api.baseurl}weather?q=${query}&units=${unit === 'C' ? 'metric' : 'imperial'}&APPID=${api.key}`, { mode: 'cors' });
-
       const weather = await response.json();
+      const mainContent = document.querySelector('.main-content');
+      mainContent.classList.add('d-flex', 'justify-content-around');
       displayWeather(weather, unit);
     } catch (e) {
       errorMessage.style.visibility = 'visible';
       errorMessage.textContent = 'City not found';
+      const mainContent = document.querySelector('.main-content');
+      mainContent.classList.remove('d-flex', 'justify-content-around');
     }
   }
 
@@ -162,8 +163,7 @@ const apiWeather = () => {
 
 
   const displayForecast = (forecast, unit) => {
-    const forecastCont = document.querySelector('.forecast');
-    clearElement(forecastCont);
+
 
     for (let i = 0; i < forecast.list.length; i += 1) {
       if (forecast.list[i].dt_txt === setDate().forecastDate) {
@@ -180,6 +180,8 @@ const apiWeather = () => {
     try {
       const responseForecast = await fetch(`${api.baseurl}forecast?q=${query}&units=${unit === 'C' ? 'metric' : 'imperial'}&appid=${api.key}`, { mode: 'cors' });
       const forecast = await responseForecast.json();
+      const forecastCont = document.querySelector('.forecast');
+      clearElement(forecastCont);
       displayForecast(forecast, unit);
     } catch (e) {
       errorMessage.style.visibility = 'visible';
