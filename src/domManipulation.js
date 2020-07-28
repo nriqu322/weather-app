@@ -1,4 +1,4 @@
-import setDate from './helper';
+import { setDate } from './helper';
 
 const displayWeather = (weather, unit) => {
   const firstMessage = document.querySelector('.first-message');

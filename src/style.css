@@ -53,7 +53,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 250px;
+  max-width: 350px;
 }
 
 .city-name {

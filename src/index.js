@@ -1,4 +1,4 @@
 import './style.css';
-import apiWeather from './openWeather';
+import uiManager from './uiManager';
 
-apiWeather();
+uiManager();
