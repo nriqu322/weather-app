@@ -42,16 +42,7 @@ const apiWeather = () => {
     }
   }
 
-  // const myPic = ['images/cloudy.jpg', 'images/sunny.jpg', 'images/rain.jpg'];
-
   searchBar.addEventListener('keypress', setQuery);
-  // searchBar.addEventListener('keypress', (e) => {
-  //   if (e.keyCode === 13) {
-  //     // const bodyCont = document.querySelector('.content');
-  //     const randomNum = Math.floor((Math.random() * myPic.length));
-  //     document.body.style.backgroundImage = `url(${myPic[randomNum]})`;
-  //   }
-  // });
 
   const clearElement = (element) => {
     while (element.firstChild) {
@@ -60,7 +51,6 @@ const apiWeather = () => {
   };
 
   const displayWeather = (weather, unit) => {
-    console.log(weather);
     const firstMessage = document.querySelector('.first-message');
     firstMessage.style.display = 'none';
 
@@ -163,8 +153,6 @@ const apiWeather = () => {
 
 
   const displayForecast = (forecast, unit) => {
-
-
     for (let i = 0; i < forecast.list.length; i += 1) {
       if (forecast.list[i].dt_txt === setDate().forecastDate) {
         setForecastCard(forecast, i, setDate().dayDescrip(1), unit);
