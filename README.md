@@ -6,10 +6,15 @@ This is a weather app where you can enter a city to check the weather in °C or 
 
 ### In this project you are able to:
 
-- X
+- Check the weather of cities.
+- Actual temperature.
+- Min and Max temperature during the day.
+- A description of the weather.
+- Check a 5 days forecast.
+- See a funny gift.
 
 ## Project specifications
-* [The Odin Project: ToDo List](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
+* [The Odin Project: ToDo List](https://www.theodinproject.com/courses/javascript/lessons/weather-app)
 
 ## Build with
 * JavaScript
@@ -25,8 +30,7 @@ Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app).
 ![Sreenshot](src/images/screenshot.png)
 
 ## Future Features
-* x
-* x
+* Funny quotes related to the selected city weather.
 
 ## Author
 
