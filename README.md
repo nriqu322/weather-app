@@ -25,7 +25,7 @@ This is a weather app where you can enter a city to check the weather in °C or 
 * [Bootstrap](https://getbootstrap.com/)
 
 ## Live Version
-Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app).
+Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app/5a4cce19442a05c959cf34610fa2680ce4ae6f03/dist/index.html).
 
 ![Sreenshot](src/images/screenshot.png)
 
