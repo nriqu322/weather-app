@@ -67,4 +67,9 @@ const displayForecast = (forecast, unit) => {
   }
 };
 
-export { displayWeather, displayForecast };
+const displayGift = (giftData) => {
+  const giftContainer = document.querySelector('.gift-container');
+  giftContainer.src = giftData.data.images.original.url;
+};
+
+export { displayWeather, displayForecast, displayGift };
