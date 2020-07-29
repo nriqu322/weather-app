@@ -26,11 +26,9 @@ This is a weather app where you can enter a city to check the weather in °C or 
 
 ## Available scripts
 You can use ``` npm run {script here} ``` with the following commands :
-* build
-* watch
 
-"build": "webpack --mode production"
-"watch": "webpack --mode development --watch"
+- "build": "webpack --mode production".
+- "watch": "webpack --mode development --watch"
 
 ## Live Version
 Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app/5a4cce19442a05c959cf34610fa2680ce4ae6f03/dist/index.html).
