@@ -31,7 +31,7 @@ You can use ``` npm run {script here} ``` with the following commands :
 - "watch": "webpack --mode development --watch"
 
 ## Live Version
-Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app/5a4cce19442a05c959cf34610fa2680ce4ae6f03/dist/index.html).
+Check the live version [here](https://rawcdn.githack.com/nriqu322/weather-app/4138cec1e9258e37157de59c34130f6cabbdb202/dist/index.html).
 
 ![Sreenshot](src/images/screenshot.png)
 
