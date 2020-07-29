@@ -14,7 +14,7 @@ This is a weather app where you can enter a city to check the weather in °C or 
 - See a funny gift.
 
 ## Project specifications
-* [The Odin Project: ToDo List](https://www.theodinproject.com/courses/javascript/lessons/weather-app)
+* [The Odin Project: Weather App](https://www.theodinproject.com/courses/javascript/lessons/weather-app)
 
 ## Build with
 * JavaScript
