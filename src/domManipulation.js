@@ -4,6 +4,36 @@ const displayWeather = (weather, unit) => {
   const firstMessage = document.querySelector('.first-message');
   firstMessage.style.display = 'none';
 
+  switch (weather.weather[0].main) {
+    case 'Clear':
+      document.body.style.backgroundImage = 'url("./../dist/images/sunny.jpg")';
+      break;
+
+    case 'Clouds':
+      document.body.style.backgroundImage = 'url("./../dist/images/cloudy.jpg")';
+      break;
+
+    case 'Rain':
+      document.body.style.backgroundImage = 'url("./../dist/images/rain.jpg")';
+      break;
+
+    case 'Drizzle':
+    case 'Mist':
+      document.body.style.backgroundImage = 'url("./../dist/images/drizzle.jpg")';
+      break;
+
+    case 'Thunderstorm':
+      document.body.style.backgroundImage = 'url("./../dist/images/storm.jpg")';
+      break;
+
+    case 'Snow':
+      document.body.style.backgroundImage = 'url("./../dist/images/snow.jpg")';
+      break;
+
+    default:
+      break;
+  }
+
   const cityName = document.querySelector('.city-name');
   cityName.textContent = `${weather.name}, ${weather.sys.country}`;
 

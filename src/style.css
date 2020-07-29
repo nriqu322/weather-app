@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url('./images/cloudy.jpg');
+  background-image: url('./images/default.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,6 +54,9 @@ header {
   justify-content: center;
   align-items: center;
   max-width: 350px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px 45px 5px 45px;
+  border-radius: 15px;
 }
 
 .city-name {
@@ -86,6 +89,7 @@ header {
   text-align: center;
   border-radius: 25px;
   box-shadow: 2px 1px 5px 2px rgba(241, 229, 52, 0.801);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .temp-forecast {
