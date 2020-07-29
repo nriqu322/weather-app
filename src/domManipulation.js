@@ -1,7 +1,6 @@
 import { setDate } from './helper';
 
 const displayWeather = (weather, unit) => {
-  console.log(weather);
   const firstMessage = document.querySelector('.first-message');
   firstMessage.style.display = 'none';
 

@@ -10,35 +10,31 @@ const uiManager = () => {
   const unitC = document.querySelector('.celcius');
   const unitF = document.querySelector('.farenheit');
 
+  function setQuery() {
+    if (searchBar.value !== '') {
+      getWeather(searchBar.value, unit);
+      getForecast(searchBar.value, unit);
+      getGift();
+      errorMessage.style.visibility = 'hidden';
+    } else {
+      errorMessage.style.visibility = 'visible';
+      errorMessage.textContent = 'Please enter a city name';
+    }
+  }
+
   unitC.addEventListener('click', () => {
     unitC.classList.add('selected');
     unitF.classList.remove('selected');
     unit = 'C';
+    setQuery();
   });
-
 
   unitF.addEventListener('click', () => {
     unitF.classList.add('selected');
     unitC.classList.remove('selected');
     unit = 'F';
+    setQuery();
   });
-
-  function setQuery(e) {
-    if (e.keyCode === 13) {
-      if (searchBar.value !== '') {
-        getWeather(searchBar.value, unit);
-        getForecast(searchBar.value, unit);
-        getGift();
-        searchBar.value = '';
-        errorMessage.style.visibility = 'hidden';
-      } else {
-        errorMessage.style.visibility = 'visible';
-        errorMessage.textContent = 'Please enter a city name';
-      }
-    }
-  }
-
-  searchBar.addEventListener('keypress', setQuery);
 };
 
 export default uiManager;
