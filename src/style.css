@@ -60,6 +60,10 @@ header {
   font-size: 32px;
 }
 
+.icon-weather {
+  height: 105px;
+}
+
 .description {
   font-size: 28px;
   font-weight: 700;

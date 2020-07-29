@@ -1,6 +1,7 @@
 import { setDate } from './helper';
 
 const displayWeather = (weather, unit) => {
+  console.log(weather);
   const firstMessage = document.querySelector('.first-message');
   firstMessage.style.display = 'none';
 
@@ -9,6 +10,9 @@ const displayWeather = (weather, unit) => {
 
   const cityDate = document.querySelector('.city-date');
   cityDate.textContent = setDate().weatherDate;
+
+  const iconWeather = document.querySelector('.icon-weather');
+  iconWeather.src = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
 
   const temperature = document.querySelector('.temperature');
   temperature.textContent = `${weather.main.temp.toFixed(0)}°${unit}`;
