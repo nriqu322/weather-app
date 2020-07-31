@@ -3,9 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <title>Weather App</title>
 </head>
 <body>
+  <header class="py-5">
+    <input required type="text" class="search-bar my-1 mx-auto form-control" placeholder="Enter city name..."></input>
+    <div class="error-message">error</div>
+    <div class="units">
+      <span class="celcius">°C</span>
+      <span>|</span>
+      <span class="farenheit">°F</span>
+    </div>
+  </header>
+  <main>
+    <div class="first-message">Welcome, please enter a city name to check the weather.</div>
+    <div class="main-content">
+      <div class="main-card">
+        <div class="city-name"></div>
+        <div class="city-date"></div>
+        <div class="temperature"></div>
+        <div class="description"></div>
+        <img class="icon-weather"></img>
+        <div class="bottom-container d-flex mt-3 justify-content-around">
+          <div class="left-side">
+            <div class="wind-container my-2">
+              <span class="font-weight-bold">Wind</span><br>
+              <span class="wind"></span>
+            </div>
+            <div class="humidity-container">
+              <span class="font-weight-bold">Humidity</span><br>
+              <span class="humidity"></span>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="feel-like-container my-2">
+              <span class="font-weight-bold">Feels Like</span><br>
+              <span class="feel-like"></span>
+            </div>
+            <div class="min-max-container">
+              <span class="font-weight-bold">Min/Max</span><br>
+              <span class="min-max"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img class="gift-container"></img>
+    </div>
+
+    <div class="forecast d-flex justify-content-center"></div>
+  </main>
   <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
