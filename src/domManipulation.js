@@ -3,7 +3,6 @@ import { setDate } from './helper';
 const displayWeather = (weather, unit) => {
   const firstMessage = document.querySelector('.first-message');
   firstMessage.style.display = 'none';
-
   switch (weather.weather[0].main) {
     case 'Clear':
       document.body.style.backgroundImage = 'url("./../dist/images/sunny.jpg")';

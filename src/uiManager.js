@@ -10,7 +10,7 @@ const uiManager = () => {
   const unitC = document.querySelector('.celcius');
   const unitF = document.querySelector('.farenheit');
 
-  function setQuery() {
+  function setQuery(unit) {
     if (searchBar.value !== '') {
       getWeather(searchBar.value, unit);
       getForecast(searchBar.value, unit);
@@ -26,14 +26,14 @@ const uiManager = () => {
     unitC.classList.add('selected');
     unitF.classList.remove('selected');
     unit = 'C';
-    setQuery();
+    setQuery(unit);
   });
 
   unitF.addEventListener('click', () => {
     unitF.classList.add('selected');
     unitC.classList.remove('selected');
     unit = 'F';
-    setQuery();
+    setQuery(unit);
   });
 };
 

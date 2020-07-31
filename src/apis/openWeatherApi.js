@@ -24,7 +24,7 @@ async function getWeather(query, unit) {
 
 async function getForecast(query, unit) {
   try {
-    const responseForecast = await fetch(`${api.baseurl}forecast?q=${query}&units=${unit === 'C' ? 'metric' : 'imperial'}&appid=${api.key}`, { mode: 'cors' });
+    const responseForecast = await fetch(`${api.baseurl}forecast?q=${query}&units=${unit === 'C' ? 'metric' : 'imperial'}&APPID=${api.key}`, { mode: 'cors' });
     const forecast = await responseForecast.json();
     const forecastCont = document.querySelector('.forecast');
     clearElement(forecastCont);

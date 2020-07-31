@@ -9,20 +9,30 @@ const setDate = () => {
 
   const year = currentDate.getFullYear();
   let month = '';
-  let day = '';
-  if (currentDate.getMonth() < 10) {
-    month = `0${currentDate.getMonth() + 1}`;
-  } else {
-    month = currentDate.getMonth() + 1;
-  }
+  let currentDay = '';
+  let tomorrowDay = '';
+  const tomorrow = new Date(currentDate);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
   if (currentDate.getDate() < 10) {
-    day = `0${currentDate.getDate()}`;
+    currentDay = `0${currentDate.getDate()}`;
   } else {
-    day = currentDate.getDate() + 1;
+    currentDay = currentDate.getDate();
   }
 
-  const weatherDate = `${dayDescrip(0)} ${day}, ${monthDescrip} ${year}`;
-  const forecastDate = `${year}-${month}-${day} 09:00:00`;
+  if (tomorrow.getMonth() < 10) {
+    month = `0${tomorrow.getMonth() + 1}`;
+  } else {
+    month = tomorrow.getMonth() + 1;
+  }
+  if (tomorrow.getDate() < 10) {
+    tomorrowDay = `0${tomorrow.getDate()}`;
+  } else {
+    tomorrowDay = tomorrow.getDate();
+  }
+
+  const weatherDate = `${dayDescrip(0)} ${currentDay}, ${monthDescrip} ${year}`;
+  const forecastDate = `${year}-${month}-${tomorrowDay} 09:00:00`;
 
   return {
     weatherDate, forecastDate, dayDescrip, monthDescrip,
